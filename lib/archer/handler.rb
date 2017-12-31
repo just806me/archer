@@ -14,6 +14,8 @@ module Archer
       answer.send
     end
 
+    alias_method :handle, :respond
+
     private
     def answer
       @answer ||= \

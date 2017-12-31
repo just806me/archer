@@ -1,0 +1,5 @@
+require 'archer/utils/files_loader'
+require 'archer/utils/app_loader'
+require 'archer/utils/config_loader'
+require 'archer/utils/handler_searcher'
+require 'archer/utils/dispatcher'
