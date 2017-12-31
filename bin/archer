@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'archer'
+
+Archer::Config.root_dir = Dir.pwd
+
+require 'bundler/setup'
+
+Bundler.require
+
+Archer.load_files
+
+Archer::Dispatcher.new.start
