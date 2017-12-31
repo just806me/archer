@@ -7,12 +7,14 @@ module Archer
     end
 
     def handler
-      @handler ||= find_handler.new update
+      return if handler_klass.blank?
+
+      @handler ||= handler_klass.new update
     end
 
     private
-    def find_handler
-      HANDLERS.detect { |handler_class| handler_class.can_handle? update }
+    def handler_klass
+      @handler_klass ||= HANDLERS.detect { |handler| handler.can_handle? update }
     end
   end
 end

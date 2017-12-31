@@ -2,16 +2,16 @@ module Archer
   class Handler
     attr_reader :update
 
+    delegate :renderer, to: :class
+
+    delegate :render, to: :renderer
+
     def initialize update
       @update = update
     end
 
     def respond
       answer.send
-    end
-
-    def render
-      self.class.renderer.result binding
     end
 
     private
@@ -26,10 +26,6 @@ module Archer
         end
     end
 
-    def binding
-      ViewHelper.instance_eval { binding }
-    end
-
     class << self
       def command name
         define_singleton_method :can_handle? do |update|
@@ -40,20 +36,7 @@ module Archer
       end
 
       def renderer
-        @renderer ||= ERB.new template
-      end
-
-      private
-      def template
-        @view ||= File.read view_path
-      end
-
-      def view_path
-        @view_path ||= File.join Config.root_dir, 'app', 'views', view_name
-      end
-
-      def view_name
-        @view_name ||= "#{ name.remove(/Handler\z/).downcase }.txt.erb"
+        @renderer ||= Renderer.new self
       end
     end
   end

@@ -4,6 +4,7 @@ require 'net/http'
 require 'archer/telegram/request'
 require 'archer/config'
 require 'archer/view_helper'
+require 'archer/renderer'
 require 'archer/handler'
 
 require 'archer/handler_searcher'
