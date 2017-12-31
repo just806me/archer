@@ -9,8 +9,8 @@ require 'bundler/setup'
 
 Bundler.require
 
-Archer::Utils::AppLoader.load
+Archer::Utils::Loader.load_app
 
-Archer::Utils::ConfigLoader.load
+Archer::Utils::Loader.load_config
 
 Archer::Utils::Dispatcher.start
