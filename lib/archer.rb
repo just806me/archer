@@ -5,6 +5,7 @@ require 'archer/config'
 require 'archer/telegram'
 require 'archer/views'
 require 'archer/controller'
+require 'archer/matchers'
 require 'archer/routes'
 
 module Archer
