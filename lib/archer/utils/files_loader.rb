@@ -1,14 +1,12 @@
 module Archer
   module Utils
     class FilesLoader
-      attr_reader :files_path
-
-      def initialize files_path
-        @files_path = files_path
+      def initialize path
+        @path = path
       end
 
       def load
-        Dir.glob(files_path) { |path| require path }
+        Dir.glob(@path) { |file| require file }
       end
     end
   end

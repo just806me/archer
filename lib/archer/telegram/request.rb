@@ -1,7 +1,7 @@
 module Archer
   module Telegram
     class Request
-      attr_reader :method, :params
+      attr_reader :params
 
       def initialize params
         @method = params[:method].to_s.camelize :lower
@@ -15,7 +15,7 @@ module Archer
 
       private
       def url
-        @url ||= URI(self.class.url + method)
+        @url ||= URI(self.class.url + @method)
       end
 
       class << self

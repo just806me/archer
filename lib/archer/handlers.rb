@@ -1,3 +1,0 @@
-module Archer
-  Handlers = []
-end

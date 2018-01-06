@@ -1,8 +1,6 @@
 module Archer
   module Utils
     class Dispatcher
-      attr_reader :offset, :updates
-
       def start
         loop do
           fetch_updates
@@ -12,7 +10,7 @@ module Archer
       end
 
       def fetch_updates
-        request.params[:offset] = offset
+        request.params[:offset] = @offset
 
         response = JSON.parse request.send.body, object_class: OpenStruct
 
@@ -25,15 +23,17 @@ module Archer
       end
 
       def process_updates
-        return if updates.blank?
+        return if @updates.blank?
 
-        updates.each do |update|
-          searcher = HandlerSearcher.new update
+        @updates.each do |update|
+          UpdateDecorator.new(update).decorate!
 
-          searcher.handler&.handle
+          route = Routes::RouteFinder.new(update).find
+
+          route.process update if route
         end
 
-        @offset = updates.max_by(&:update_id).update_id + 1
+        @offset = @updates.max_by(&:update_id).update_id + 1
       end
 
       class << self

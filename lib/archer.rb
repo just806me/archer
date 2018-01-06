@@ -2,16 +2,19 @@ require 'active_support/all'
 require 'net/http'
 
 require 'archer/config'
-require 'archer/handlers'
-require 'archer/telegram/request'
-require 'archer/view_helper'
-require 'archer/renderer'
-require 'archer/handler'
+require 'archer/telegram'
+require 'archer/views'
+require 'archer/controller'
+require 'archer/routes'
 
 module Archer
   class << self
     def configure
       yield Archer::Config
+    end
+
+    def draw_routes
+      yield Archer::Routes::RouteDrawer
     end
   end
 end
