@@ -1,3 +1,3 @@
 module Archer
-  Config = OpenStruct.new telegram: OpenStruct.new(parse_mode: :markdown)
+  CONFIG = OpenStruct.new telegram: OpenStruct.new(parse_mode: :markdown)
 end

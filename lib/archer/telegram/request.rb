@@ -20,7 +20,7 @@ module Archer
 
       class << self
         def url
-          @url ||= "https://api.telegram.org/bot#{ Config.telegram.token }/"
+          @url ||= "https://api.telegram.org/bot#{ CONFIG.telegram.token }/"
         end
       end
     end

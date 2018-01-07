@@ -10,7 +10,7 @@ module Archer
         when :text_message
           Telegram::Request.new method: :send_message, params: {
             chat_id: update.message.chat.id, text: content,
-            parse_mode: Config.telegram.parse_mode
+            parse_mode: CONFIG.telegram.parse_mode
           }
         end
       end

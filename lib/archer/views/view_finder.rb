@@ -17,7 +17,7 @@ module Archer
       end
 
       def path
-        @path ||= File.join Config.root_dir, 'app', 'views', controller_folder
+        @path ||= File.join CONFIG.root_dir, 'app', 'views', controller_folder
       end
 
       def find_rendered_view

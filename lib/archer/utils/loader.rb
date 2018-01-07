@@ -12,11 +12,11 @@ module Archer
 
         private
         def app_path
-          File.join Config.root_dir, 'app', '**/*.rb'
+          File.join CONFIG.root_dir, 'app', '**/*.rb'
         end
 
         def config_path
-          File.join Config.root_dir, 'config', '*.rb'
+          File.join CONFIG.root_dir, 'config', '*.rb'
         end
       end
     end

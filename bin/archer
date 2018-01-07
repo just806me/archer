@@ -3,7 +3,7 @@
 require 'archer'
 require 'archer/utils'
 
-Archer::Config.root_dir = Dir.pwd
+Archer::CONFIG.root_dir = Dir.pwd
 
 require 'bundler/setup'
 

@@ -11,7 +11,7 @@ require 'archer/routes'
 module Archer
   class << self
     def configure
-      yield Archer::Config
+      yield Archer::CONFIG
     end
 
     def draw_routes
