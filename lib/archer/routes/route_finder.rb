@@ -1,12 +1,14 @@
 module Archer
   module Routes
     class RouteFinder
-      def initialize update
-        @update = update
-      end
+      class << self
+        def find_for update
+          ROUTES[update.type].detect { |route| route.match? update }
+        end
 
-      def find
-        ROUTES[@update.type].detect { |route| route.match? @update }
+        def find_and_process update
+          find_for(update)&.process(update)
+        end
       end
     end
   end

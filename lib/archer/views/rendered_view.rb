@@ -3,7 +3,7 @@ module Archer
     class RenderedView < TextView
       private
       def content
-        @content ||= renderer.result binding
+        renderer.result binding
       end
 
       def renderer
@@ -11,7 +11,7 @@ module Archer
       end
 
       def binding
-        @binding ||= ViewHelper.instance_eval { binding }
+        @binding ||= ViewHelper.get_binding
       end
     end
   end

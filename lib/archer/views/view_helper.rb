@@ -2,6 +2,10 @@ module Archer
   module Views
     module ViewHelper
       class << self
+        def get_binding
+          binding
+        end
+
         def bold text
           case CONFIG.telegram.parse_mode
           when :html     then "<b>#{ text }</b>"
@@ -38,7 +42,7 @@ module Archer
         end
 
         def mention name, id
-          case Config.telegram.parse_mode
+          case CONFIG.telegram.parse_mode
           when :html     then "<a href=\"tg://user?id=#{ id }\">#{ name }</a>"
           when :markdown then "[#{ name }](tg://user?id=#{ id })"
           end

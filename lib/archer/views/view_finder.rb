@@ -1,8 +1,8 @@
 module Archer
   module Views
     class ViewFinder
-      def initialize controller, action
-        @controller = controller
+      def initialize controller_path, action
+        @controller_path = controller_path
 
         @action = action
       end
@@ -12,12 +12,8 @@ module Archer
       end
 
       private
-      def controller_folder
-        @controller.class.name.remove(/Controller\z/).underscore
-      end
-
       def path
-        @path ||= File.join CONFIG.root_dir, 'app', 'views', controller_folder
+        @path ||= File.join CONFIG.root_dir, 'app', 'views', @controller_path
       end
 
       def find_rendered_view

@@ -1,8 +1,8 @@
 module Archer
   module Matchers
     class RegexpMatcher
-      def initialize regex, type
-        @regex = regex
+      def initialize regexp, type
+        @regexp = regexp
 
         @type = type
       end
@@ -10,7 +10,7 @@ module Archer
       def match? update
         return false unless @type == update.type
 
-        @regex.match? update.data
+        @regexp.match? update.data
       end
     end
   end

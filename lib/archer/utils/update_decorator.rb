@@ -31,9 +31,15 @@ module Archer
             @update.message.text
           when :inline_query
             @update.inline_query.query
-          when
+          when :callback_query
             @update.callback_query.data
           end
+      end
+
+      class << self
+        def decorate! update
+          new(update).decorate!
+        end
       end
     end
   end

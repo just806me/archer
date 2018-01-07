@@ -3,8 +3,10 @@ module Archer
     class Request
       attr_reader :params
 
+      delegate :base_url, to: :class
+
       def initialize params
-        @method = params[:method].to_s.camelize :lower
+        @method = params[:method].to_s.camelize(:lower)
 
         @params = params[:params] || {}
       end
@@ -15,12 +17,12 @@ module Archer
 
       private
       def url
-        @url ||= URI(self.class.url + @method)
+        @url ||= URI(base_url + @method)
       end
 
       class << self
-        def url
-          @url ||= "https://api.telegram.org/bot#{ CONFIG.telegram.token }/"
+        def base_url
+          @base_url ||= "https://api.telegram.org/bot#{ CONFIG.telegram.token }/"
         end
       end
     end

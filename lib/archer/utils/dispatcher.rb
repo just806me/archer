@@ -10,8 +10,6 @@ module Archer
       end
 
       def fetch_updates
-        request.params[:offset] = @offset
-
         response = JSON.parse request.send.body, object_class: OpenStruct
 
         @updates = response.ok ? response.result : []
@@ -23,17 +21,15 @@ module Archer
       end
 
       def process_updates
-        return if @updates.blank?
+        return request.params[:offset] = nil if @updates.blank?
 
         @updates.each do |update|
-          UpdateDecorator.new(update).decorate!
+          UpdateDecorator.decorate! update
 
-          route = Routes::RouteFinder.new(update).find
-
-          route.process update if route
+          Routes::RouteFinder.find_and_process update
         end
 
-        @offset = @updates.max_by(&:update_id).update_id + 1
+        request.params[:offset] = @updates.max_by(&:update_id).update_id + 1
       end
 
       class << self

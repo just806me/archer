@@ -1,15 +1,9 @@
 module Archer
   class Controller
-    VIEWS = {}
+    delegate :views, to: :class
 
-    delegate :render, to: :renderer
-
-    def initialize update, action
-      @update, @action = update, action
-    end
-
-    def process
-      send @action
+    def initialize update, path, action
+      @update, @path, @action = update, path, action
     end
 
     private
@@ -21,8 +15,18 @@ module Archer
       respond
     end
 
+    def respond_to_missing? *args
+      true
+    end
+
     def view
-      VIEWS[@action] ||= Views::ViewFinder.new(self, @action).find
+      views[@action] ||= Views::ViewFinder.new(@path, @action).find
+    end
+
+    class << self
+      def views
+        @views ||= {}
+      end
     end
   end
 end

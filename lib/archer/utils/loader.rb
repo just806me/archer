@@ -3,11 +3,11 @@ module Archer
     class Loader
       class << self
         def load_app
-          FilesLoader.new(app_path).load
+          FilesLoader.load app_path
         end
 
         def load_config
-          FilesLoader.new(config_path).load
+          FilesLoader.load config_path
         end
 
         private

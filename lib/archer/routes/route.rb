@@ -6,13 +6,15 @@ module Archer
       def initialize param, options
         @type = options[:type]
 
-        @controller_name, @action = options[:to].split '#'
+        @controller_path, @action = options[:to].split '#'
+
+        @action = @action.to_sym
 
         @param = param
       end
 
       def process update
-        controller_klass.new(update, @action).process
+        controller_klass.new(update, @controller_path, @action).send(@action)
       end
 
       private
@@ -31,7 +33,7 @@ module Archer
       end
 
       def controller_klass
-        @controller_klass ||= "#{ @controller_name.camelize }Controller".constantize
+        @controller_klass ||= "#{ @controller_path.camelize }Controller".constantize
       end
     end
   end
