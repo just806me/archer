@@ -9,4 +9,6 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/just806me/archer'
   s.license     = 'MIT'
   s.executables << 'archer'
+
+  s.add_dependency 'activesupport'
 end

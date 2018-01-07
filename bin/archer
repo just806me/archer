@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 
+require 'bundler/setup'
+
+Bundler.require
+
 require 'archer'
 require 'archer/utils'
 
 Archer::CONFIG.root_dir = Dir.pwd
-
-require 'bundler/setup'
-
-Bundler.require
 
 Archer::Utils::Loader.load_app
 
