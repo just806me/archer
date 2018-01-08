@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Archer::Telegram::Request do
-  subject { described_class.new method: :method, params: :params }
+  subject { described_class.new :method, :params }
 
   it { should delegate_method(:base_url).to(:class) }
 
@@ -27,7 +27,7 @@ RSpec.describe Archer::Telegram::Request do
     its(:params) { should eq :params }
 
     context do
-      subject { described_class.new method: :method }
+      subject { described_class.new :method }
 
       its(:params) { should eq Hash.new }
     end

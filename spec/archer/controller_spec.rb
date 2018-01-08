@@ -1,55 +1,73 @@
 require 'spec_helper'
 
 RSpec.describe Archer::Controller do
-  subject { described_class.new :update, :path, :action }
+  subject { described_class.new :update }
 
-  it { expect(Archer::Controller.views).to eq Hash.new }
+  it { should delegate_method(:helper_methods).to(:class) }
 
-  it { should delegate_method(:views).to(:class) }
-
-  describe '#respond' do
-    it do
-      #
-      # subject.view.request_for(:update).send
-      #
-      expect(subject).to receive_message_chain(:view, :request_for).with(:update) do
-        double.tap { |a| expect(a).to receive(:send) }
-      end
-    end
-
-    after { subject.send :respond }
-  end
-
-  describe '#method_missing' do
-    it { expect(subject).to receive(:respond) }
-
-    after { subject.a_missing_method }
-  end
-
-  describe '#respond_to_missing?' do
-    it { expect(subject.respond_to? :a_missing_method).to eq(true) }
-  end
-
-  describe '#view' do
+  describe '#binding' do
     context do
-      before { subject.views[:action] = :view }
+      before { subject.instance_variable_set :@binding, :binding }
 
-      its(:view) { should eq :view }
+      its(:binding) { should eq :binding }
     end
 
     context do
-      before { subject.views[:action] = nil }
+      before { subject.instance_variable_set :@binding, nil }
 
-      before do
-        #
-        # Archer::Views::ViewFinder.new(subject, :action).find -> :view
-        #
-        expect(Archer::Views::ViewFinder).to receive(:new).with(:path, :action) do
-          double.tap { |a| expect(a).to receive(:find).and_return(:view) }
-        end
+      before { expect(subject).to receive_message_chain(:binding_module, :get_binding).and_return(:binding) }
+
+      its(:binding) { should eq :binding }
+    end
+  end
+
+  describe '#binding_module' do
+    context do
+      before { subject.instance_variable_set :@binding_module, :binding_module }
+
+      its(:binding_module) { should eq :binding_module }
+    end
+
+    context do
+      let(:binding_module) { subject.send :binding_module }
+
+      before { subject.helper_methods << :a_helper_method }
+
+      it { expect(binding_module.instance_variable_get :@controller).to eq(subject) }
+
+      it { expect(binding_module.singleton_methods).to include(:a_helper_method) }
+
+      it { expect(binding_module).to be_a(Archer::Views::ViewHelper) }
+
+      context do
+        before { subject.class.define_method(:a_helper_method) {} }
+
+        it { expect(subject).to receive(:a_helper_method) }
+
+        after { binding_module.a_helper_method }
+      end
+    end
+  end
+
+  context do
+    subject { described_class }
+
+    describe '.helper_methods' do
+      context do
+        before { subject.instance_variable_set :@helper_methods, [] }
+
+        its(:helper_methods) { should eq [] }
       end
 
-      its(:view) { should eq :view }
+      context do
+        before { subject.instance_variable_set :@helper_methods, nil }
+
+        its(:helper_methods) { should eq [] }
+      end
+    end
+
+    describe '.helper_method' do
+      it { expect { subject.helper_method :method }.to change { subject.helper_methods }.by([:method]) }
     end
   end
 end

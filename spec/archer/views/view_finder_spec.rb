@@ -68,4 +68,17 @@ RSpec.describe Archer::Views::ViewFinder do
       its(:find_text_view) { should be_nil }
     end
   end
+
+  describe '.find_for' do
+    before do
+      #
+      # described_class.new(:path, :action).find -> :view
+      #
+      expect(described_class).to receive(:new).with(:path, :action) do
+        double.tap { |a| expect(a).to receive(:find).and_return(:view) }
+      end
+    end
+
+    it { expect(described_class.find_for :path, :action).to eq(:view) }
+  end
 end

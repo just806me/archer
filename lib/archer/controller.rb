@@ -1,31 +1,42 @@
 module Archer
   class Controller
-    delegate :views, to: :class
+    delegate :helper_methods, to: :class
 
-    def initialize update, path, action
-      @update, @path, @action = update, path, action
+    def initialize update
+      @update = update
+    end
+
+    def binding
+      @binding ||= binding_module.get_binding
     end
 
     private
-    def respond
-      view.request_for(@update).send
-    end
+    def binding_module
+      unless @binding_module.present?
+        @binding_module = Module.new do
+          extend Views::ViewHelper
 
-    def method_missing *args
-      respond
-    end
+          extend self
+        end
 
-    def respond_to_missing? *args
-      true
-    end
+        helper_methods.each do |method|
+          @binding_module.define_method(method) { @controller.__send__ method }
+        end
 
-    def view
-      views[@action] ||= Views::ViewFinder.new(@path, @action).find
+        @binding_module.instance_variable_set :@controller, self
+      end
+
+
+      @binding_module
     end
 
     class << self
-      def views
-        @views ||= {}
+      def helper_methods
+        @helper_methods ||= []
+      end
+
+      def helper_method method
+        helper_methods << method.to_sym
       end
     end
   end

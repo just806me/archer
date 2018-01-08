@@ -27,6 +27,12 @@ module Archer
 
         TextView.new file if File.exists? file
       end
+
+      class << self
+        def find_for controller_path, action
+          new(controller_path, action).find
+        end
+      end
     end
   end
 end

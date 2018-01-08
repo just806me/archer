@@ -4,11 +4,9 @@ module Archer
       extend self
 
       def find_for update
-        ROUTES[update.type].detect { |route| route.match? update }
-      end
+        route = ROUTES[update.type].detect { |route| route.match? update }
 
-      def find_and_process update
-        find_for(update)&.process(update)
+        route.for update if route
       end
     end
   end

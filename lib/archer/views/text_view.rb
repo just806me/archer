@@ -5,18 +5,7 @@ module Archer
         @path = path
       end
 
-      def request_for update
-        case update.type
-        when :text_message
-          Telegram::Request.new method: :send_message, params: {
-            chat_id: update.message.chat.id, text: content,
-            parse_mode: CONFIG.telegram.parse_mode
-          }
-        end
-      end
-
-      private
-      def content
+      def render_for binding
         @content ||= File.read @path
       end
     end

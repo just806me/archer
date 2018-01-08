@@ -5,17 +5,36 @@ RSpec.describe Archer::Routes::Route do
 
   subject { described_class.new param, type: :type, to: 'some/path/to/test#action' }
 
-  describe '#process' do
-    it do
-      #
-      # subject.controller_klass.new(:update, :action).send(:action)
-      #
-      expect(subject).to receive_message_chain(:controller_klass, :new).with(:update, 'some/path/to/test', :action) do
-        double.tap { |a| expect(a).to receive(:send).with(:action) }
-      end
+  describe '#controller' do
+    before { subject.instance_variable_set :@controller, :controller }
+
+    its(:controller) { should eq :controller }
+  end
+
+  describe '#view' do
+    context do
+      before { subject.instance_variable_set :@view, :view }
+
+      its(:view) { should eq :view }
     end
 
-    after { subject.process :update }
+    context do
+      before { subject.instance_variable_set :@view, nil }
+
+      before { expect(Archer::Views::ViewFinder).to receive(:find_for).with('some/path/to/test', :action).and_return(:view) }
+
+      its(:view) { should eq :view }
+    end
+  end
+
+  describe '#for' do
+    before do
+      expect(subject).to receive_message_chain(:controller_klass, :new).with(:update).and_return(:controller)
+    end
+
+    it { expect(subject.for :update).to eq(subject) }
+
+    after { expect(subject.controller).to eq :controller }
   end
 
   describe '#matcher' do

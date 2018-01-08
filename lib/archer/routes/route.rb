@@ -3,6 +3,8 @@ module Archer
     class Route
       delegate :match?, to: :matcher
 
+      attr_reader :controller, :action
+
       def initialize param, options
         @type = options[:type]
 
@@ -13,8 +15,14 @@ module Archer
         @param = param
       end
 
-      def process update
-        controller_klass.new(update, @controller_path, @action).send(@action)
+      def view
+        @view ||= Views::ViewFinder.find_for @controller_path, @action
+      end
+
+      def for update
+        @controller = controller_klass.new update
+
+        self
       end
 
       private

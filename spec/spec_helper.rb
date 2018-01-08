@@ -34,7 +34,3 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
   end
 end
-
-def ostruct params
-  OpenStruct.new params
-end

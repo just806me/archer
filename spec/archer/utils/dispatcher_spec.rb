@@ -27,7 +27,7 @@ RSpec.describe Archer::Utils::Dispatcher do
     context do
       before { subject.instance_variable_set :@request, nil }
 
-      before { expect(Archer::Telegram::Request).to receive(:new).with(method: :get_updates).and_return(:request) }
+      before { expect(Archer::Telegram::Request).to receive(:new).with(:get_updates).and_return(:request) }
 
       its(:request) { should eq :request }
     end
@@ -71,9 +71,7 @@ RSpec.describe Archer::Utils::Dispatcher do
 
       before { subject.instance_variable_set :@updates, [update] }
 
-      before { expect(Archer::Utils::UpdateDecorator).to receive(:decorate!).with(update) }
-
-      before { expect(Archer::Routes::RouteFinder).to receive(:find_and_process).with(update) }
+      before { expect(Archer::Utils::UpdateProcesser).to receive(:process) }
 
       it { expect(&call).to change { params[:offset] }.from(:offset).to(update.update_id + 1) }
     end

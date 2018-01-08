@@ -17,17 +17,13 @@ module Archer
 
       private
       def request
-        @request ||= Telegram::Request.new method: :get_updates
+        @request ||= Telegram::Request.new :get_updates
       end
 
       def process_updates
         return request.params[:offset] = nil if @updates.blank?
 
-        @updates.each do |update|
-          UpdateDecorator.decorate! update
-
-          Routes::RouteFinder.find_and_process update
-        end
+        @updates.each { |update| UpdateProcesser.process update }
 
         request.params[:offset] = @updates.max_by(&:update_id).update_id + 1
       end

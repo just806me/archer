@@ -5,10 +5,10 @@ module Archer
 
       delegate :base_url, to: :class
 
-      def initialize params
-        @method = params[:method].to_s.camelize(:lower)
+      def initialize method, params = {}
+        @method = method.to_s.camelize :lower
 
-        @params = params[:params] || {}
+        @params = params
       end
 
       def send
