@@ -20,7 +20,7 @@ module Archer
         end
 
         helper_methods.each do |method|
-          @binding_module.define_method(method) { @controller.__send__ method }
+          @binding_module.define_singleton_method(method) { @controller.__send__ method }
         end
 
         @binding_module.instance_variable_set :@controller, self
