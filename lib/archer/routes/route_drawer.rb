@@ -1,14 +1,14 @@
 module Archer
   module Routes
-    class RouteDrawer
-      class << self
-        def route *params
-          options = params.extract_options!
+    module RouteDrawer
+      extend self
 
-          route = Route.new params[0], options
+      def route *params
+        options = params.extract_options!
 
-          ROUTES[options[:type]] << route
-        end
+        route = Route.new params[0], options
+
+        ROUTES[options[:type]] << route
       end
     end
   end

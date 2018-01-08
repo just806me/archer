@@ -12,13 +12,13 @@ module Archer
 
   ROUTES = Hash.new { |hash, key| hash[key] = [] }
 
-  class << self
-    def configure
-      yield Archer::CONFIG
-    end
+  extend self
 
-    def draw_routes
-      yield Archer::Routes::RouteDrawer
-    end
+  def configure
+    yield Archer::CONFIG
+  end
+
+  def draw_routes
+    yield Archer::Routes::RouteDrawer
   end
 end
