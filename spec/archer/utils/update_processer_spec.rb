@@ -10,38 +10,48 @@ RSpec.describe Archer::Utils::UpdateProcesser do
   it { should delegate_method(:action).to(:route) }
 
   describe '#process' do
-    let(:controller) { double binding: :binding, action: :action }
-
-    let(:view) { double }
-
-    before { allow(subject).to receive(:controller).and_return(controller) }
-
-    before { allow(subject).to receive(:view).and_return(view) }
-
-    before { allow(subject).to receive(:action).and_return(:action) }
-
     before { expect(subject).to receive(:decorate_update!) }
 
-    before { expect(view).to receive(:render_for).with(:binding).and_return(:content) }
-
-    before { expect(subject).to receive_message_chain(:request, :send) }
-
-    after { expect(subject.instance_variable_get :@content).to eq(:content) }
-
     context do
-      before { expect(controller).to receive(:respond_to?).with(:action).and_return(true) }
-
-      before { expect(controller).to receive(:action) }
+      before { expect(subject).to receive(:route).and_return(nil) }
 
       it { expect { subject.process }.to_not raise_error }
     end
 
     context do
-      before { expect(controller).to receive(:respond_to?).with(:action).and_return(false) }
+      let(:controller) { double binding: :binding, action: :action }
 
-      before { expect(controller).to_not receive(:action) }
+      let(:view) { double }
 
-      it { expect { subject.process }.to_not raise_error }
+      before { expect(subject).to receive(:route).and_return(:route) }
+
+      before { allow(subject).to receive(:controller).and_return(controller) }
+
+      before { allow(subject).to receive(:view).and_return(view) }
+
+      before { allow(subject).to receive(:action).and_return(:action) }
+
+      before { expect(view).to receive(:render_for).with(:binding).and_return(:content) }
+
+      before { expect(subject).to receive_message_chain(:request, :send) }
+
+      after { expect(subject.instance_variable_get :@content).to eq(:content) }
+
+      context do
+        before { expect(controller).to receive(:respond_to?).with(:action).and_return(true) }
+
+        before { expect(controller).to receive(:action) }
+
+        it { expect { subject.process }.to_not raise_error }
+      end
+
+      context do
+        before { expect(controller).to receive(:respond_to?).with(:action).and_return(false) }
+
+        before { expect(controller).to_not receive(:action) }
+
+        it { expect { subject.process }.to_not raise_error }
+      end
     end
   end
 

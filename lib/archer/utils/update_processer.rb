@@ -10,6 +10,8 @@ module Archer
       def process
         decorate_update!
 
+        return if route.blank?
+
         controller.public_send action if controller.respond_to? action
 
         @content = view.render_for controller.binding
