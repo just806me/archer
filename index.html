@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-01-07T23:56:59+02:00">2018-01-07T23:56:59+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-01-08T15:27:27+02:00">2018-01-08T15:27:27+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -547,49 +547,49 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">  class &lt;&lt; self</code>
+          <code class="ruby">  extend self</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    def configure</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      yield Archer::CONFIG</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
+        <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">    def draw_routes</code>
+          <code class="ruby">  def configure</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    yield Archer::CONFIG</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">      yield Archer::Routes::RouteDrawer</code>
+          <code class="ruby">  def draw_routes</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">    yield Archer::Routes::RouteDrawer</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
@@ -1551,55 +1551,55 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">    class RouteDrawer</code>
+          <code class="ruby">    module RouteDrawer</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">      class &lt;&lt; self</code>
+          <code class="ruby">      extend self</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">        def route *params</code>
+          <code class="ruby">      def route *params</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="6">
+        <li class="covered" data-hits="2" data-linenumber="7">
           <span class="hits">2</span>
           
-          <code class="ruby">          options = params.extract_options!</code>
+          <code class="ruby">        options = params.extract_options!</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="8">
+        <li class="covered" data-hits="2" data-linenumber="9">
           <span class="hits">2</span>
           
-          <code class="ruby">          route = Route.new params[0], options</code>
+          <code class="ruby">        route = Route.new params[0], options</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
+        <li class="covered" data-hits="2" data-linenumber="11">
           <span class="hits">2</span>
           
-          <code class="ruby">          ROUTES[options[:type]] &lt;&lt; route</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">        ROUTES[options[:type]] &lt;&lt; route</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
@@ -1660,55 +1660,55 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">    class RouteFinder</code>
+          <code class="ruby">    module RouteFinder</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">      class &lt;&lt; self</code>
+          <code class="ruby">      extend self</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        def find_for update</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="6">
-          <span class="hits">3</span>
-          
-          <code class="ruby">          ROUTES[update.type].detect { |route| route.match? update }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">        def find_and_process update</code>
+          <code class="ruby">      def find_for update</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
+        <li class="covered" data-hits="3" data-linenumber="7">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        ROUTES[update.type].detect { |route| route.match? update }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def find_and_process update</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="11">
           <span class="hits">2</span>
           
-          <code class="ruby">          find_for(update)&amp;.process(update)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">        find_for(update)&amp;.process(update)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
@@ -2295,31 +2295,31 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">    class FilesLoader</code>
+          <code class="ruby">    module FilesLoader</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">      class &lt;&lt; self</code>
+          <code class="ruby">      extend self</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">        def load path</code>
+          <code class="ruby">      def load path</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="6">
+        <li class="covered" data-hits="2" data-linenumber="7">
           <span class="hits">2</span>
           
-          <code class="ruby">          Dir.glob(path) { |file| require file }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">        Dir.glob(path) { |file| require file }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -2380,109 +2380,109 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">    class Loader</code>
+          <code class="ruby">    module Loader</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">      class &lt;&lt; self</code>
+          <code class="ruby">      extend self</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="5">
           
-          <code class="ruby">        def load_app</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">          FilesLoader.load app_path</code>
+          <code class="ruby">      def load_app</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">        FilesLoader.load app_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="9">
           
-          <code class="ruby">        def load_config</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">          FilesLoader.load config_path</code>
+          <code class="ruby">      def load_config</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">        FilesLoader.load config_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="13">
           
-          <code class="ruby">        private</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">        def app_path</code>
+          <code class="ruby">      private</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def app_path</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="16">
           <span class="hits">2</span>
           
-          <code class="ruby">          File.join CONFIG.root_dir, &#39;app&#39;, &#39;**/*.rb&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">        File.join CONFIG.root_dir, &#39;app&#39;, &#39;**/*.rb&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">        def config_path</code>
+          <code class="ruby">      def config_path</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="19">
+        <li class="covered" data-hits="2" data-linenumber="20">
           <span class="hits">2</span>
           
-          <code class="ruby">          File.join CONFIG.root_dir, &#39;config&#39;, &#39;*.rb&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">        File.join CONFIG.root_dir, &#39;config&#39;, &#39;*.rb&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
@@ -3388,61 +3388,61 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">      class &lt;&lt; self</code>
+          <code class="ruby">      extend self</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        def get_binding</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          binding</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">        def bold text</code>
+          <code class="ruby">      def get_binding</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        binding</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def bold text</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="11">
           <span class="hits">2</span>
           
-          <code class="ruby">          case CONFIG.telegram.parse_mode</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          when :html     then &quot;&lt;b&gt;#{ text }&lt;/b&gt;&quot;</code>
+          <code class="ruby">        case CONFIG.telegram.parse_mode</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">          when :markdown then &quot;*#{ text }*&quot;</code>
+          <code class="ruby">        when :html     then &quot;&lt;b&gt;#{ text }&lt;/b&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">          end</code>
+          <code class="ruby">        when :markdown then &quot;*#{ text }*&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
@@ -3454,37 +3454,37 @@
         <li class="never" data-hits="" data-linenumber="15">
           
           
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">        def italic text</code>
+          <code class="ruby">      def italic text</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="17">
+        <li class="covered" data-hits="2" data-linenumber="18">
           <span class="hits">2</span>
           
-          <code class="ruby">          case CONFIG.telegram.parse_mode</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          when :html     then &quot;&lt;i&gt;#{ text }&lt;/i&gt;&quot;</code>
+          <code class="ruby">        case CONFIG.telegram.parse_mode</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">          when :markdown then &quot;_#{ text }_&quot;</code>
+          <code class="ruby">        when :html     then &quot;&lt;i&gt;#{ text }&lt;/i&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">          end</code>
+          <code class="ruby">        when :markdown then &quot;_#{ text }_&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
@@ -3496,37 +3496,37 @@
         <li class="never" data-hits="" data-linenumber="22">
           
           
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
-          <code class="ruby">        def fixed text</code>
+          <code class="ruby">      def fixed text</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="24">
+        <li class="covered" data-hits="2" data-linenumber="25">
           <span class="hits">2</span>
           
-          <code class="ruby">          case CONFIG.telegram.parse_mode</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          when :html     then &quot;&lt;code&gt;#{ text }&lt;/code&gt;&quot;</code>
+          <code class="ruby">        case CONFIG.telegram.parse_mode</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
-          <code class="ruby">          when :markdown then &quot;`#{ text }`&quot;</code>
+          <code class="ruby">        when :html     then &quot;&lt;code&gt;#{ text }&lt;/code&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">          end</code>
+          <code class="ruby">        when :markdown then &quot;`#{ text }`&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -3538,37 +3538,37 @@
         <li class="never" data-hits="" data-linenumber="29">
           
           
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="30">
+        <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
-          <code class="ruby">        def block text</code>
+          <code class="ruby">      def block text</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="31">
+        <li class="covered" data-hits="2" data-linenumber="32">
           <span class="hits">2</span>
           
-          <code class="ruby">          case CONFIG.telegram.parse_mode</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="32">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          when :html     then &quot;&lt;pre&gt;#{ text }&lt;/pre&gt;&quot;</code>
+          <code class="ruby">        case CONFIG.telegram.parse_mode</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">          when :markdown then &quot;```#{ text }```&quot;</code>
+          <code class="ruby">        when :html     then &quot;&lt;pre&gt;#{ text }&lt;/pre&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">          end</code>
+          <code class="ruby">        when :markdown then &quot;```#{ text }```&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
@@ -3580,37 +3580,37 @@
         <li class="never" data-hits="" data-linenumber="36">
           
           
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
-          <code class="ruby">        def link name, url</code>
+          <code class="ruby">      def link name, url</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="38">
+        <li class="covered" data-hits="2" data-linenumber="39">
           <span class="hits">2</span>
           
-          <code class="ruby">          case CONFIG.telegram.parse_mode</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          when :html     then &quot;&lt;a href=\&quot;#{ url }\&quot;&gt;#{ name }&lt;/a&gt;&quot;</code>
+          <code class="ruby">        case CONFIG.telegram.parse_mode</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
-          <code class="ruby">          when :markdown then &quot;[#{ name }](#{ url })&quot;</code>
+          <code class="ruby">        when :html     then &quot;&lt;a href=\&quot;#{ url }\&quot;&gt;#{ name }&lt;/a&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">          end</code>
+          <code class="ruby">        when :markdown then &quot;[#{ name }](#{ url })&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
@@ -3622,37 +3622,37 @@
         <li class="never" data-hits="" data-linenumber="43">
           
           
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
+        <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">        def mention name, id</code>
+          <code class="ruby">      def mention name, id</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="45">
+        <li class="covered" data-hits="2" data-linenumber="46">
           <span class="hits">2</span>
           
-          <code class="ruby">          case CONFIG.telegram.parse_mode</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="46">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          when :html     then &quot;&lt;a href=\&quot;tg://user?id=#{ id }\&quot;&gt;#{ name }&lt;/a&gt;&quot;</code>
+          <code class="ruby">        case CONFIG.telegram.parse_mode</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
-          <code class="ruby">          when :markdown then &quot;[#{ name }](tg://user?id=#{ id })&quot;</code>
+          <code class="ruby">        when :html     then &quot;&lt;a href=\&quot;tg://user?id=#{ id }\&quot;&gt;#{ name }&lt;/a&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">          end</code>
+          <code class="ruby">        when :markdown then &quot;[#{ name }](tg://user?id=#{ id })&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
